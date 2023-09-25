@@ -1,3 +1,5 @@
-# sta426_hs23_staebler_jann
-STA426 Exercise 01 repository
-test 2
+# A general introduction
+## I'm so excited! 
+Hello world! This is my first "readme" file and also my first repository – well, it is even my first week with Github!
+
+## Thi

@@ -30,6 +30,7 @@ Here is a table of my top 3 favorite animals
 | **3**  | Baby goats  | are super cute |
 
 ## Let's talk business
+This is the repository for exercise 01. This readme file is part of task A, whereas the qmd and html files for task B can also be found in this repository
 
 
 

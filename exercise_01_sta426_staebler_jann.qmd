@@ -5,13 +5,17 @@ format: html
 editor: visual
 ---
 
+# Exercise 01 Task B \| Jann Stäbler
+
 ## Preliminaries
 
 ```{r}
+#| output: false
 # loading libraries
 library(ggplot2) 
 library(hrbrthemes)
 library(dplyr)
+
 ```
 
 ## Part I: Sampling
@@ -24,6 +28,8 @@ a <- rlnorm(100, meanlog=5, sdlog=0.5) # a is our vector of the sample with mu=5
 
 ## Part II: Plotting
 
+#### Original values
+
 Let's first plot the non-transformed histogram:
 
 ```{r}
@@ -31,24 +37,32 @@ df <- data.frame(value=a, A=c(rep("A")))  # creating a small data frame
 
 # Histogram
 ggplot(df, aes(x=value)) + 
-     geom_histogram( binwidth=15, fill="#69b3a2", color="#e9ecef", alpha=0.9) +    ggtitle("Histogram of 100 samples of a log-normal distribution (mu=5, sigma=0.5)")  
+     geom_histogram( binwidth=15, fill="#69b3a2", color="#e9ecef", alpha=0.9) +    ggtitle("Histogram of 100 samples of a log-normal distribution (mu=5, sigma=0.5)")  +
+  labs(x="counted sample values")
 
 # Violin plot
 ggplot(df, aes(x=value, y=A)) + 
    ggtitle("Violinplot of the data displayed in the histogram above.")  +
-geom_violin()
+  labs(x="counted sample values", y="", subtitle="The added boxplot shows the median and the quartiles") +
+geom_violin(fill="lavender") +
+geom_boxplot(width=0.1) 
 ```
+
+#### log transformed values
 
 Now we plot the log-transformed values:
 
 ```{r}
 ggplot(df, aes(x=log(a))) + 
-     geom_histogram( binwidth=0.1, fill="#69b3a2", color="#e9ecef", alpha=0.9) +    ggtitle("Histogram of 100 samples of a log-normal distribution (log-transformed) (mu=5, sigma=0.5)")
+     geom_histogram( binwidth=0.1, fill="#69b3a2", color="#e9ecef", alpha=0.9) +    ggtitle("Histogram of 100 samples of a log-normal distribution (log-transformed) (mu=5, sigma=0.5)") +
+  labs(x="counted sample values, log-transformed")
 
 # Violin plot
 ggplot(df, aes(x=log(value), y=A)) + 
    ggtitle("Violinplot of the data displayed in the histogram above.")  +
-geom_violin()
+geom_violin(fill="lavenderblush") +
+  geom_boxplot(width=0.1) +
+  labs(x="counted sample values, log-transformed", y="", subtitle="The added boxplot shows the median and the quartiles")
 ```
 
 ```{r}

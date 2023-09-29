@@ -101,6 +101,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<section id="exercise-01-task-b-jann-stäbler" class="level1">
+<h1>Exercise 01 Task B |&nbsp;Jann Stäbler</h1>
 <section id="preliminaries" class="level2">
 <h2 class="anchored" data-anchor-id="preliminaries">Preliminaries</h2>
 <div class="cell">
@@ -108,72 +110,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
 </div>
 </section>
 <section id="part-i-sampling" class="level2">
 <h2 class="anchored" data-anchor-id="part-i-sampling">Part I: Sampling</h2>
 <p>Let’s sample 100 values from a log-normal distribution</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(<span class="dv">100</span>, <span class="at">meanlog=</span><span class="dv">5</span>, <span class="at">sdlog=</span><span class="fl">0.5</span>) <span class="co"># a is our vector of the sample with mu=5 and sigma=0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(<span class="dv">100</span>, <span class="at">meanlog=</span><span class="dv">5</span>, <span class="at">sdlog=</span><span class="fl">0.5</span>) <span class="co"># a is our vector of the sample with mu=5 and sigma=0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="part-ii-plotting" class="level2">
 <h2 class="anchored" data-anchor-id="part-ii-plotting">Part II: Plotting</h2>
+<section id="original-values" class="level4">
+<h4 class="anchored" data-anchor-id="original-values">Original values</h4>
 <p>Let’s first plot the non-transformed histogram:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">value=</span>a, <span class="at">A=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"A"</span>)))  <span class="co"># creating a small data frame</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>value)) <span class="sc">+</span> </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_histogram</span>( <span class="at">binwidth=</span><span class="dv">15</span>, <span class="at">fill=</span><span class="st">"#69b3a2"</span>, <span class="at">color=</span><span class="st">"#e9ecef"</span>, <span class="at">alpha=</span><span class="fl">0.9</span>) <span class="sc">+</span>    <span class="fu">ggtitle</span>(<span class="st">"Histogram of 100 samples of a log-normal distribution (mu=5, sigma=0.5)"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">value=</span>a, <span class="at">A=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"A"</span>)))  <span class="co"># creating a small data frame</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>value)) <span class="sc">+</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_histogram</span>( <span class="at">binwidth=</span><span class="dv">15</span>, <span class="at">fill=</span><span class="st">"#69b3a2"</span>, <span class="at">color=</span><span class="st">"#e9ecef"</span>, <span class="at">alpha=</span><span class="fl">0.9</span>) <span class="sc">+</span>    <span class="fu">ggtitle</span>(<span class="st">"Histogram of 100 samples of a log-normal distribution (mu=5, sigma=0.5)"</span>)  <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"counted sample values"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="exercise_01_sta426_staebler_jann_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Violin plot</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>value, <span class="at">y=</span>A)) <span class="sc">+</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Violinplot of the data displayed in the histogram above."</span>)  <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Violin plot</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>value, <span class="at">y=</span>A)) <span class="sc">+</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Violinplot of the data displayed in the histogram above."</span>)  <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"counted sample values"</span>, <span class="at">y=</span><span class="st">""</span>, <span class="at">subtitle=</span><span class="st">"The added boxplot shows the median and the quartiles"</span>) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_violin</span>(<span class="at">fill=</span><span class="st">"lavender"</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="exercise_01_sta426_staebler_jann_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
+<section id="log-transformed-values" class="level4">
+<h4 class="anchored" data-anchor-id="log-transformed-values">log transformed values</h4>
 <p>Now we plot the log-transformed values:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">log</span>(a))) <span class="sc">+</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_histogram</span>( <span class="at">binwidth=</span><span class="fl">0.1</span>, <span class="at">fill=</span><span class="st">"#69b3a2"</span>, <span class="at">color=</span><span class="st">"#e9ecef"</span>, <span class="at">alpha=</span><span class="fl">0.9</span>) <span class="sc">+</span>    <span class="fu">ggtitle</span>(<span class="st">"Histogram of 100 samples of a log-normal distribution (log-transformed) (mu=5, sigma=0.5)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">log</span>(a))) <span class="sc">+</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_histogram</span>( <span class="at">binwidth=</span><span class="fl">0.1</span>, <span class="at">fill=</span><span class="st">"#69b3a2"</span>, <span class="at">color=</span><span class="st">"#e9ecef"</span>, <span class="at">alpha=</span><span class="fl">0.9</span>) <span class="sc">+</span>    <span class="fu">ggtitle</span>(<span class="st">"Histogram of 100 samples of a log-normal distribution (log-transformed) (mu=5, sigma=0.5)"</span>) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"counted sample values, log-transformed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="exercise_01_sta426_staebler_jann_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Violin plot</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">log</span>(value), <span class="at">y=</span>A)) <span class="sc">+</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Violinplot of the data displayed in the histogram above."</span>)  <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Violin plot</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">log</span>(value), <span class="at">y=</span>A)) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Violinplot of the data displayed in the histogram above."</span>)  <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_violin</span>(<span class="at">fill=</span><span class="st">"lavenderblush"</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"counted sample values, log-transformed"</span>, <span class="at">y=</span><span class="st">""</span>, <span class="at">subtitle=</span><span class="st">"The added boxplot shows the median and the quartiles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="exercise_01_sta426_staebler_jann_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mean_df <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(df<span class="sc">$</span>value)) <span class="co">#mean</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sd_df <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sd</span>(df<span class="sc">$</span>value)) <span class="co">#standard deviation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mean_df <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(df<span class="sc">$</span>value)) <span class="co">#mean</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sd_df <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sd</span>(df<span class="sc">$</span>value)) <span class="co">#standard deviation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 </section>
 <section id="part-iii-reporting-results" class="level2">
 <h2 class="anchored" data-anchor-id="part-iii-reporting-results">Part III: Reporting results</h2>
-<p>The rounded mean of the sampled values is <strong>166</strong> and the rounded standard deviation is <strong>81</strong>.</p>
+<p>The rounded mean of the sampled values is <strong>169</strong> and the rounded standard deviation is <strong>88</strong>.</p>
+</section>
 </section>
 
 </main>

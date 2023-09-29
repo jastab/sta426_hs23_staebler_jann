@@ -24,7 +24,7 @@ A very fancy picture of a flow cytometry facility at UZH! Here is also the link 
 Here is a table of my top 3 favorite animals
 
 | Place  | Animal | Coolness factor | 
-| --- | --- | --- | --- | 
+| --- | --- | --- |
 | **1**  | Ibeces  | live in the roughest mountain areas |
 | **2**  | Marmots  | whistle to alarm their fellow buddies |
 | **3**  | Baby goats  | are super cute |

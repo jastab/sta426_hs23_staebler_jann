@@ -135,9 +135,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="exercise_01_sta426_staebler_jann_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Violin plot</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>value, <span class="at">y=</span>A)) <span class="sc">+</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>A, <span class="at">y=</span>value)) <span class="sc">+</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Violinplot of the data displayed in the histogram above."</span>)  <span class="sc">+</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"counted sample values"</span>, <span class="at">y=</span><span class="st">""</span>, <span class="at">subtitle=</span><span class="st">"The added boxplot shows the median and the quartiles"</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"counted sample values"</span>, <span class="at">y=</span><span class="st">""</span>, <span class="at">subtitle=</span><span class="st">"The added boxplot shows the median, quartiles, furthest non-outlier points (whiskers) and outliers (points)"</span>) <span class="sc">+</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_violin</span>(<span class="at">fill=</span><span class="st">"lavender"</span>) <span class="sc">+</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -156,11 +156,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="exercise_01_sta426_staebler_jann_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Violin plot</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">log</span>(value), <span class="at">y=</span>A)) <span class="sc">+</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>A, <span class="at">y=</span><span class="fu">log</span>(value))) <span class="sc">+</span> </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Violinplot of the data displayed in the histogram above."</span>)  <span class="sc">+</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_violin</span>(<span class="at">fill=</span><span class="st">"lavenderblush"</span>) <span class="sc">+</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"counted sample values, log-transformed"</span>, <span class="at">y=</span><span class="st">""</span>, <span class="at">subtitle=</span><span class="st">"The added boxplot shows the median and the quartiles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"counted sample values, log-transformed"</span>, <span class="at">y=</span><span class="st">""</span>, <span class="at">subtitle=</span><span class="st">"The added boxplot shows the median, quartiles, furthest non-outlier points (whiskers) and outliers (points)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="exercise_01_sta426_staebler_jann_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
 </div>
@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="part-iii-reporting-results" class="level2">
 <h2 class="anchored" data-anchor-id="part-iii-reporting-results">Part III: Reporting results</h2>
-<p>The rounded mean of the sampled values is <strong>169</strong> and the rounded standard deviation is <strong>88</strong>.</p>
+<p>The rounded mean of the sampled values is <strong>161</strong> and the rounded standard deviation is <strong>92</strong>.</p>
 </section>
 </section>
 

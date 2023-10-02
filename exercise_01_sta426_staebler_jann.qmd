@@ -41,9 +41,9 @@ ggplot(df, aes(x=value)) +
   labs(x="counted sample values")
 
 # Violin plot
-ggplot(df, aes(x=value, y=A)) + 
+ggplot(df, aes(x=A, y=value)) + 
    ggtitle("Violinplot of the data displayed in the histogram above.")  +
-  labs(x="counted sample values", y="", subtitle="The added boxplot shows the median and the quartiles") +
+  labs(x="counted sample values", y="", subtitle="The added boxplot shows the median, quartiles, furthest non-outlier points (whiskers) and outliers (points)") +
 geom_violin(fill="lavender") +
 geom_boxplot(width=0.1) 
 ```
@@ -58,11 +58,11 @@ ggplot(df, aes(x=log(a))) +
   labs(x="counted sample values, log-transformed")
 
 # Violin plot
-ggplot(df, aes(x=log(value), y=A)) + 
+ggplot(df, aes(x=A, y=log(value))) + 
    ggtitle("Violinplot of the data displayed in the histogram above.")  +
 geom_violin(fill="lavenderblush") +
   geom_boxplot(width=0.1) +
-  labs(x="counted sample values, log-transformed", y="", subtitle="The added boxplot shows the median and the quartiles")
+  labs(x="counted sample values, log-transformed", y="", subtitle="The added boxplot shows the median, quartiles, furthest non-outlier points (whiskers) and outliers (points)")
 ```
 
 ```{r}

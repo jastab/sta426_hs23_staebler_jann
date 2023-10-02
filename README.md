@@ -12,7 +12,12 @@ Some useful git commands I have already learned in this course:
 * `git push`
 * `git --version`
 
+
 Wow, it's even formatted like code – now that's exciting!
+
+### Quoting
+Let's quote a wikipedia intro on microarrays:
+> A microarray is a multiplex lab-on-a-chip. Its purpose is to simultaneously detect the expression of thousands of biological interactions. It is a two-dimensional array on a solid substrate—usually a glass slide or silicon thin-film cell—that assays (tests) large amounts of biological material using high-throughput screening miniaturized, multiplexed and parallel processing and detection methods.
 
 
 ### Pretty pictures make everything better

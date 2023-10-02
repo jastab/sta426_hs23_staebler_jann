@@ -116,7 +116,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="part-i-sampling">Part I: Sampling</h2>
 <p>Let’s sample 100 values from a log-normal distribution</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(<span class="dv">100</span>, <span class="at">meanlog=</span><span class="dv">5</span>, <span class="at">sdlog=</span><span class="fl">0.5</span>) <span class="co"># a is our vector of the sample with mu=5 and sigma=0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) <span class="co"># for reproducibility </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(<span class="dv">100</span>, <span class="at">meanlog=</span><span class="dv">5</span>, <span class="at">sdlog=</span><span class="fl">0.5</span>) <span class="co"># a is our vector of the sample with mu=5 and sigma=0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="part-ii-plotting" class="level2">
@@ -125,7 +126,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="original-values">Original values</h4>
 <p>Let’s first plot the non-transformed histogram:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">value=</span>a, <span class="at">A=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"A"</span>)))  <span class="co"># creating a small data frame</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">value=</span>a, <span class="at">A=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"A"</span>)))  <span class="co"># creating a little data frame with A as a dummy variable </span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>value)) <span class="sc">+</span> </span>
@@ -173,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="part-iii-reporting-results" class="level2">
 <h2 class="anchored" data-anchor-id="part-iii-reporting-results">Part III: Reporting results</h2>
-<p>The rounded mean of the sampled values is <strong>161</strong> and the rounded standard deviation is <strong>92</strong>.</p>
+<p>The rounded mean of the sampled values is <strong>173</strong> and the rounded standard deviation is <strong>80</strong>.</p>
 </section>
 </section>
 

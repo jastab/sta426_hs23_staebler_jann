@@ -23,6 +23,7 @@ library(dplyr)
 Let's sample 100 values from a log-normal distribution
 
 ```{r}
+set.seed(1) # for reproducibility 
 a <- rlnorm(100, meanlog=5, sdlog=0.5) # a is our vector of the sample with mu=5 and sigma=0.5
 ```
 
@@ -33,7 +34,7 @@ a <- rlnorm(100, meanlog=5, sdlog=0.5) # a is our vector of the sample with mu=5
 Let's first plot the non-transformed histogram:
 
 ```{r}
-df <- data.frame(value=a, A=c(rep("A")))  # creating a small data frame
+df <- data.frame(value=a, A=c(rep("A")))  # creating a little data frame with A as a dummy variable 
 
 # Histogram
 ggplot(df, aes(x=value)) + 
@@ -72,4 +73,4 @@ sd_df <- round(sd(df$value)) #standard deviation
 
 ## Part III: Reporting results
 
-The rounded mean of the sampled values is **`r mean_df`** and the rounded standard deviation is **`r sd_df`**.
+The rounded mean of the sampled values (non log-transformed) is **`r mean_df`** and the rounded standard deviation is **`r sd_df`**.
